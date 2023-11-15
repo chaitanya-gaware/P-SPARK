@@ -1,0 +1,4 @@
+- here you can use the structType and StructField to create the dataframe schema
+- you have to import this from pyspark.sql.types
+- you need to import the dataTypes from this too like IntegerType, FloatType, StringType etc
+- in the data you can pass the dictionry too 
