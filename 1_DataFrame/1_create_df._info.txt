@@ -1,0 +1,6 @@
+- first create the `spark` session 
+- then provide the data and schema to the spark.createDataFrame()
+- here you have to hardcode type the info for data and schema
+    - data - you have to provide the data in the form of the interator like list tupple etc 
+    - schema you only need to provide here name of the columns and not the data type like we use to create the table in the mysql
+        - spark intelligently assign the data types to it you dont need to specify the column type here there is another way where you can provide the data types of the column too

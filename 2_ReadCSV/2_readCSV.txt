@@ -1,0 +1,3 @@
+- this is used to read the csv file 
+- first create the sparkSession ie sparkSession
+- using this use the dataframe readed
