@@ -1,0 +1,53 @@
+Help on method json in module pyspark.sql.readwriter:
+
+json(path: Union[str, List[str], pyspark.rdd.RDD[str]], schema: Union[pyspark.sql.types.StructType, str, NoneType] = None, primitivesAsString: Union[bool, str, NoneType] = None, prefersDecimal: Union[bool, str, NoneType] = None, allowComments: Union[bool, str, NoneType] = None, allowUnquotedFieldNames: Union[bool, str, NoneType] = None, allowSingleQuotes: Union[bool, str, NoneType] = None, allowNumericLeadingZero: Union[bool, str, NoneType] = None, allowBackslashEscapingAnyCharacter: Union[bool, str, NoneType] = None, mode: Optional[str] = None, columnNameOfCorruptRecord: Optional[str] = None, dateFormat: Optional[str] = None, timestampFormat: Optional[str] = None, multiLine: Union[bool, str, NoneType] = None, allowUnquotedControlChars: Union[bool, str, NoneType] = None, lineSep: Optional[str] = None, samplingRatio: Union[str, float, NoneType] = None, dropFieldIfAllNull: Union[bool, str, NoneType] = None, encoding: Optional[str] = None, locale: Optional[str] = None, pathGlobFilter: Union[bool, str, NoneType] = None, recursiveFileLookup: Union[bool, str, NoneType] = None, modifiedBefore: Union[bool, str, NoneType] = None, modifiedAfter: Union[bool, str, NoneType] = None, allowNonNumericNumbers: Union[bool, str, NoneType] = None) -> 'DataFrame' method of pyspark.sql.readwriter.DataFrameReader instance
+    Loads JSON files and returns the results as a :class:`DataFrame`.
+    
+    `JSON Lines <http://jsonlines.org/>`_ (newline-delimited JSON) is supported by default.
+    For JSON (one record per file), set the ``multiLine`` parameter to ``true``.
+    
+    If the ``schema`` parameter is not specified, this function goes
+    through the input once to determine the input schema.
+    
+    .. versionadded:: 1.4.0
+    
+    .. versionchanged:: 3.4.0
+        Supports Spark Connect.
+    
+    Parameters
+    ----------
+    path : str, list or :class:`RDD`
+        string represents path to the JSON dataset, or a list of paths,
+        or RDD of Strings storing JSON objects.
+    schema : :class:`pyspark.sql.types.StructType` or str, optional
+        an optional :class:`pyspark.sql.types.StructType` for the input schema or
+        a DDL-formatted string (For example ``col0 INT, col1 DOUBLE``).
+    
+    Other Parameters
+    ----------------
+    Extra options
+        For the extra options, refer to
+        `Data Source Option <https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option>`_
+        for the version you use.
+    
+        .. # noqa
+    
+    Examples
+    --------
+    Write a DataFrame into a JSON file and read it back.
+    
+    >>> import tempfile
+    >>> with tempfile.TemporaryDirectory() as d:
+    ...     # Write a DataFrame into a JSON file
+    ...     spark.createDataFrame(
+    ...         [{"age": 100, "name": "Hyukjin Kwon"}]
+    ...     ).write.mode("overwrite").format("json").save(d)
+    ...
+    ...     # Read the JSON file as a DataFrame.
+    ...     spark.read.json(d).show()
+    +---+------------+
+    |age|        name|
+    +---+------------+
+    |100|Hyukjin Kwon|
+    +---+------------+
+

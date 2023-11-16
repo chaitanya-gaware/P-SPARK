@@ -1,0 +1,52 @@
+Help on method json in module pyspark.sql.readwriter:
+
+json(path: str, mode: Optional[str] = None, compression: Optional[str] = None, dateFormat: Optional[str] = None, timestampFormat: Optional[str] = None, lineSep: Optional[str] = None, encoding: Optional[str] = None, ignoreNullFields: Union[bool, str, NoneType] = None) -> None method of pyspark.sql.readwriter.DataFrameWriter instance
+    Saves the content of the :class:`DataFrame` in JSON format
+    (`JSON Lines text format or newline-delimited JSON <http://jsonlines.org/>`_) at the
+    specified path.
+    
+    .. versionadded:: 1.4.0
+    
+    .. versionchanged:: 3.4.0
+        Supports Spark Connect.
+    
+    Parameters
+    ----------
+    path : str
+        the path in any Hadoop supported file system
+    mode : str, optional
+        specifies the behavior of the save operation when data already exists.
+    
+        * ``append``: Append contents of this :class:`DataFrame` to existing data.
+        * ``overwrite``: Overwrite existing data.
+        * ``ignore``: Silently ignore this operation if data already exists.
+        * ``error`` or ``errorifexists`` (default case): Throw an exception if data already                 exists.
+    
+    Other Parameters
+    ----------------
+    Extra options
+        For the extra options, refer to
+        `Data Source Option <https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option>`_
+        for the version you use.
+    
+        .. # noqa
+    
+    Examples
+    --------
+    Write a DataFrame into a JSON file and read it back.
+    
+    >>> import tempfile
+    >>> with tempfile.TemporaryDirectory() as d:
+    ...     # Write a DataFrame into a JSON file
+    ...     spark.createDataFrame(
+    ...         [{"age": 100, "name": "Hyukjin Kwon"}]
+    ...     ).write.json(d, mode="overwrite")
+    ...
+    ...     # Read the JSON file as a DataFrame.
+    ...     spark.read.format("json").load(d).show()
+    +---+------------+
+    |age|        name|
+    +---+------------+
+    |100|Hyukjin Kwon|
+    +---+------------+
+
