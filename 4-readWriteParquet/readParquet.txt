@@ -1,0 +1,42 @@
+Help on method parquet in module pyspark.sql.readwriter:
+
+parquet(*paths: str, **options: 'OptionalPrimitiveType') -> 'DataFrame' method of pyspark.sql.readwriter.DataFrameReader instance
+    Loads Parquet files, returning the result as a :class:`DataFrame`.
+    
+    .. versionadded:: 1.4.0
+    
+    .. versionchanged:: 3.4.0
+        Supports Spark Connect.
+    
+    Parameters
+    ----------
+    paths : str
+    
+    Other Parameters
+    ----------------
+    **options
+        For the extra options, refer to
+        `Data Source Option <https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option>`_
+        for the version you use.
+    
+        .. # noqa
+    
+    Examples
+    --------
+    Write a DataFrame into a Parquet file and read it back.
+    
+    >>> import tempfile
+    >>> with tempfile.TemporaryDirectory() as d:
+    ...     # Write a DataFrame into a Parquet file
+    ...     spark.createDataFrame(
+    ...         [{"age": 100, "name": "Hyukjin Kwon"}]
+    ...     ).write.mode("overwrite").format("parquet").save(d)
+    ...
+    ...     # Read the Parquet file as a DataFrame.
+    ...     spark.read.parquet(d).show()
+    +---+------------+
+    |age|        name|
+    +---+------------+
+    |100|Hyukjin Kwon|
+    +---+------------+
+
