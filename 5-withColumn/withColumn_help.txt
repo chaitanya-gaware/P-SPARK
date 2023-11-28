@@ -1,0 +1,44 @@
+Help on method withColumn in module pyspark.sql.dataframe:
+
+withColumn(colName: str, col: pyspark.sql.column.Column) -> 'DataFrame' method of pyspark.sql.dataframe.DataFrame instance
+    Returns a new :class:`DataFrame` by adding a column or replacing the
+    existing column that has the same name.
+    
+    The column expression must be an expression over this :class:`DataFrame`; attempting to add
+    a column from some other :class:`DataFrame` will raise an error.
+    
+    .. versionadded:: 1.3.0
+    
+    .. versionchanged:: 3.4.0
+        Supports Spark Connect.
+    
+    Parameters
+    ----------
+    colName : str
+        string, name of the new column.
+    col : :class:`Column`
+        a :class:`Column` expression for the new column.
+    
+    Returns
+    -------
+    :class:`DataFrame`
+        DataFrame with new or replaced column.
+    
+    Notes
+    -----
+    This method introduces a projection internally. Therefore, calling it multiple
+    times, for instance, via loops in order to add multiple columns can generate big
+    plans which can cause performance issues and even `StackOverflowException`.
+    To avoid this, use :func:`select` with multiple columns at once.
+    
+    Examples
+    --------
+    >>> df = spark.createDataFrame([(2, "Alice"), (5, "Bob")], schema=["age", "name"])
+    >>> df.withColumn('age2', df.age + 2).show()
+    +---+-----+----+
+    |age| name|age2|
+    +---+-----+----+
+    |  2|Alice|   4|
+    |  5|  Bob|   7|
+    +---+-----+----+
+
