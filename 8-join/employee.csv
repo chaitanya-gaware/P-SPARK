@@ -1,0 +1,11 @@
+employee_id,name,job_title,department_id
+1,John Doe,Software Engineer,101
+2,Jane Smith,Data Scientist,102
+3,Bob Johnson,Product Manager,101
+4,Alice Williams,Software Engineer,103
+5,David Brown,Data Analyst,102
+6,Emily Davis,Software Engineer,101
+7,Chris Miller,Product Manager,103
+8,Susan Wilson,Data Scientist,102
+9,Mike Jones,Software Engineer,101
+10,Laura White,Data Analyst,102
