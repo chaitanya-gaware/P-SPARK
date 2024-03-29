@@ -7,7 +7,7 @@ spark = SparkSession.builder\
                     .master('local')\
                     .getOrCreate()
 
-# define the schema for u.data
+define the schema for u.data
 schema = StructType([
     StructField("user_id", IntegerType(), True),
     StructField("movie_id", IntegerType(), True),
@@ -43,3 +43,4 @@ user_df = spark.read.format('csv')\
 
 # user_df.show()                 
 # print(user_df.count())
+
