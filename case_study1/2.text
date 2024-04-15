@@ -1,0 +1,223 @@
+Length of the service
+
+You are given a table pilots. The pilots table contains information about various pill including a unique pilot code, pilot name, ssn, city, flight_pay, and hire date.
+
+
+Task
+
+Display the names and dates of all pilots hired during the 1990s. 
+The qualifying pilo should be displayed in descending order by length of service, with ranks starting from 1 to n.
+
+Table description
+
+Input format
+
+Table: pilots
+
+Name    Type    Description
+
+pilot_code  String  Represents the unique pilot code of a pilot
+
+pilot_name  String  Represents the name of a pilot
+
+ssn         String  Represents the Social Security Number of a pilot
+
+city        String  Represents the city of a pilot
+
+flight_pay  Integer Represents the pay of a pilot
+
+hire_date   Date      Represents the hiring date of a pilot
+
+
+
+Output format
+
+Name    Type    Description
+
+pilot_name  String  Represents the name of the pilots
+
+hire_date   Date    Represents the hiring date of the pilots
+
+Represents the rank based on length of service from current
+
+Rank
+
+Integer
+
+date to the hiring date
+
+Example
+
+Represents the rank based on length of service from current date to the hiring date
+
+Input table
+
+Table: pilots
+
+pilot_code
+
+pilot_name
+
+Pasewark, William B
+
+WRP
+
+city
+
+flight_pay
+
+hire_date
+
+1993-07- 23
+
+523451784
+
+PHOENIX
+
+2500
+
+1990-01- 21
+
+ELL
+
+Leiss, Ernst L
+
+2640
+
+234783222
+
+FLAGSTAFF
+
+1989-12- 20
+
+SSM
+
+Moore, Sharon S
+
+452127055
+
+LOS ANGELES
+
+3000
+
+1995-05- 20
+
+RS
+
+Scamell, Richard
+
+452094673
+
+CUPERTINO
+
+560
+
+SL
+
+Long, Stuart
+
+148434500
+
+3000
+
+DALLAS
+
+1991-06- 03
+
+1993-02
+CG
+
+Gladchuk, Chet
+
+210453278
+
+HOUSTON
+
+3150
+
+1993-02- 28
+
+KCH
+
+Harris, Kenneth C
+
+211463278
+
+HOUSTON
+
+2002-05- 28
+
+3150
+
+VIT
+
+Tabor, Victor T
+
+234651322
+
+FLAGSTAFF
+
+2640
+
+ELG
+
+Green, Edward L
+
+234781000
+
+FLAGSTAFF
+
+2640
+
+1998-01- 21
+
+1989-01- 21
+Output table
+
+2
+
+pilot_name
+
+hire_date
+
+Rank
+
+3
+
+Leiss, Ernst L
+
+1990-01-21
+
+1
+
+Long, Stuart
+
+1991-06-03
+
+2
+
+Gladchuk, Chet
+
+1993-02-28
+
+3
+
+Pasewark, William B
+
+1993-07-23
+
+4
+
+36°C Sunny
+
+Scamell, Richard
+
+1995-05-20
+
+5
+
+Tabor, Victor T
+
+1998-01-21
+
+6
