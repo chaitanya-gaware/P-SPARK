@@ -6,3 +6,5 @@ spark = SparkSession.builder.appName("scd2").getOrCreate()
 
 df = spark.read.format("csv").option("mode","permissive").option("header",True).load("11-sc2/data.csv") 
 df.show()
+
+update_df = spark.read.format("csv").option("mode","permissive").option("header",True).load("/11-sc2/data_update.csv") 
